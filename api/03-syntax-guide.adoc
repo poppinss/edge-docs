@@ -1,0 +1,85 @@
+----
+permalink: syntax-guide
+category: api
+----
+
+= Syntax Guide
+Syntax guide gives you a breif overview on how Edge templates works. Checkout syntax reference for list of available *tags* or *globals*. Also in order to keep learning curve small, edge makes use of vanilla Javascript syntax.
+
+== Interpolation
+Interpolation is a way to define dynamic blocks of code inside your HTML structure. Edge makes use of Mustache like syntax for same.
+
+[source, edge]
+----
+<h2> You are logged in as {{ username }} </h2>
+----
+
+== Tags
+Tags let you add behaviour to your code. There are two type of tags called *Inline tags* and *Block tags*. Inline tags are closed within the same line, whereas block tags are closed with an explicit `end` statement.
+
+=== Inline Tags
+Below is the list of examples
+
+[source, edge]
+----
+@include('partials.users')
+----
+
+Or
+
+[source, edge]
+----
+@layout('master')
+----
+
+=== Block Tags
+Block level tags allows you define content within the body of the tag. Each block level needs to be closed explicitly with `end` statement
+
+[source, edge]
+----
+@component('alert') <1>
+@endcomponent <2>
+----
+
+<1> The first statement is to start a tag by calling the tag name after by `@` symbol.
+<2> In order to end the tag, we write `@end` followed by the tagname. It is important to close the block level tags, otherwise edge will throw an exception.
+
+=== Self closing tags
+Block level tags can also be self closed based upon the nature. For example the `@component` tag makes it optional to override the `@slots`, which means you can self close when you do not want to override a slot.
+
+[source, edge]
+----
+@!component('alert')
+----
+
+The `@!` is the expression to self close a block level tag.
+
+== Passing Parameters
+You can pass parameters to any tag (only if they support it) by passing a plain object or key/value pairs. For example:
+
+[source, edge]
+----
+@component('alert', type = 'success')
+----
+
+Or
+
+[source, edge]
+----
+@component('alert', { type: 'success' })
+----
+
+== Rest...
+You are free to call any javascript function by passing it via `data` object or defining a global. Also Edge allows you to write almost all Javascript expressions inside your templates. For example:
+
+[source, edge]
+----
+{{ 'virk'.includes('v') }}
+----
+
+Or
+
+[source, edge]
+----
+{{ ['virk', 'nikk'].indexOf('virk') }}
+----

@@ -1,0 +1,42 @@
+----
+permalink: data-locals
+category: api
+----
+
+= View Data And Locals
+While rendering you can pass `data` and `locals` object to a view. These objects gets merged and preference is given to the data object.
+
+== Basic Example
+[source, javascript]
+----
+const edge = require('edge.js')
+
+const template = `
+Hello {{ username }}
+`
+
+edge.renderString(template, { username: 'virk' })
+----
+
+The object passed to the `renderString` method is the `data` object.
+
+== Locals
+You can share locals with a template by calling the `share` method. Ideally there is no difference in *locals* and *data* object. Locals gives you an opportunity to transparently share a data with your views.
+
+For example: Passing HTTP request object to your views within a middleware.
+
+NOTE: You cannot call `share` multiple times, doing so will override the previous object.
+
+[source, javascript]
+----
+const someMiddleware = function (req, res) {
+  req.view = edge.share({ req }) <1>
+}
+
+const requestHandler = function () {
+  req.view.render('welcome') <1>
+}
+----
+
+<1> The `edge.share` method will return an isolated instance of *Template*.
+<2> Later you need to make use of the previously returned instance in order to render the view.

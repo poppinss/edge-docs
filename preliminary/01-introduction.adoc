@@ -1,0 +1,119 @@
+----
+permalink: preliminary
+category: api
+----
+
+= Introduction
+
+Edge is a logical templating engine for Node.js. Which means you can write most of the Javascript expressions inside `.edge` file. This guide gives you a *bird eye view* of Edge features and how to use it.
+
+== Basic Usage
+The most simplest way to use Edge is to register a views directory and render views via the `render` method.
+
+NOTE: Make sure to check the link:installation[installation guide] incase you are not sure on how to install Edge.
+
+.Directory Structure
+[source, bash]
+----
+├── views/
+│ ├── welcome.edge
+----
+
+.welcome.edge
+[source, edge]
+----
+@if(hours < 12)
+  <h2> Good Morning </h2>
+@elseif(hours < 18)
+  <h2> Good Afternoon </h2>
+@else
+  <h2> Good Evening </h2>
+@endif
+----
+
+.Rendering the view
+[source, js]
+----
+const path = require('path')
+const edge = require('edge.js') <1>
+
+edge.registerViews(path.join(__dirname, './views')) <2>
+
+edge.render('welcome', {
+  hours: new Date().getHours()
+}) <3>
+----
+
+<1> First, we require the npm module edge.
+<2> Next, register the views directory from where to read views.
+<3> Finally, call the `render` method with the view name and data we want to pass along.
+
+== Features
+Edge has bunch of cool features I always desired from a template engine.
+
+=== Syntax with fresh air
+Edge follows the natural Javascript syntax, which makes it easier to type and remember. For string interpolation it makes use of *mustache syntax* `{{ username }}`. Let's take a look at some examples:
+
+.Layouts
+[source, edge]
+----
+@layout('master')
+
+@section('content')
+  Here goes the content
+@endsection
+----
+
+.Components
+[source, edge]
+----
+@component('alert', type = 'error')
+@endcomponent
+----
+
+If you leave out `@` symbol, everything else feels like writing Javascript functions. Read link:syntax-guide[Syntax guide] to know more about Edge syntax.
+
+=== Support for components
+If you have been developing frontend apps in Javascript, you would have heard about link:https://www.webcomponents.org/introduction[Web components]. Now Edge components are not true web components, but they give you a chance to write *isolated markup* with *self contained logic*. The most common example is to have a component for alerts.
+
+.alert.edge
+[source, edge]
+----
+<div class="alert alert-{{type}}" role="alert">
+  @yield($slot.main)
+</div>
+----
+
+.Using the alert component
+[source, edge]
+----
+@component('alert', type = 'success')
+  <strong> Well done! </strong> You successfully read this important alert message.
+@endcomponent
+----
+
+Read link:components[Components Guide] to learn more about components.
+
+=== Runtime debugging
+Have you ever done `JSON.stringify(users)` inside your templates?::
+  I believe Yes.
+
+Majority of template engines doesn't offer tools to debug your templates in runtime and instead offers weird filters like `inspect` or `toJSON` to see how an object looks like.
+
+Edge empowers chrome dev tools and let you define debugging break points inside your templates. Check the below video to learn more about runtime debugging.
+
+video:[]
+
+=== Helpful error messages
+Since template files are compiled into javascript and then evaluated, the error stack never points to the original source file. Edge does it's best to track the error within your source file and updates the error stack to point towards the correct line number.
+
+=== Everything Else
+Apart from all the exciting features, Edge has support for common functionality like
+
+1. Layouts
+2. Partials
+3. Globals
+4. Escaped Output
+5. Logical Tags
+6. Itteration, etc.
+

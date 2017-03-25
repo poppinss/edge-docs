@@ -1,0 +1,29 @@
+----
+permalink: yield
+category: reference
+----
+
+= Yield
+The yield keyword is a shorthand syntax for outputting a variable and also define the fallback content, if it does not exists.
+
+== Example
+Let's say we want to display a variable containing some HTML markup and if it does not exists, we want to have some fallback markup.
+
+.Without yield
+[source, edge]
+----
+@if($slot.content)
+  {{{ $slot.content }}}
+@else
+  <h2> Some fallback markup </h2>
+@endif
+----
+
+.With yield
+
+[source, edge]
+----
+@yield($slot.content)
+  <h2> Some fallback markup </h2>
+@endyield
+----

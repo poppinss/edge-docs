@@ -1,0 +1,127 @@
+----
+permalink: iteration
+category: reference
+----
+
+= Iteration
+You can easily iterate over *Arrays* and *Object* using built-in `@each` tag.
+
+== Arrays
+
+.Data object
+[source, javascript]
+----
+const users = [
+  {
+    username: 'virk'
+  },
+  {
+    username: 'joe'
+  },
+  {
+    username: 'nikk'
+  }
+]
+----
+
+.Template File
+[source, edge]
+----
+<ul>
+  @each(user in users)
+    <li> {{ user.username }} </li>
+  @endeach
+</ul>
+----
+
+.Output
+[source, html]
+----
+<ul>
+  <li> virk </li>
+  <li> joe </li>
+  <li> nikk </li>
+</ul>
+----
+
+== Objects
+
+.Data object
+[source, javascript]
+----
+const veggies = {
+  tomato: '18',
+  potato: '77',
+  carrot: '41'
+}
+----
+
+.Template File
+[source, edge]
+----
+<ul>
+  @each((calories, name) in veggies)
+    <li> {{ name }} has {{ calories }} calories </li>
+  @endeach
+</ul>
+----
+
+.Output
+[source, html]
+----
+<ul>
+  <li> tomato has 18 calories </li>
+  <li> potato has 77 calories </li>
+  <li> carrot has 41 calories </li>
+</ul>
+----
+
+== Loop Variable
+When iterating over data sets, you have access to a global `$loop` variable holding the iteration information.
+
+.Template File
+[source, edge]
+----
+<ul>
+  @each(user in users)
+    <li> {{ ($loop.index + 1) }} - {{ user.username }} </li>
+  @endeach
+</ul>
+----
+
+.Output
+[source, html]
+----
+<ul>
+  <li> 1 - virk </li>
+  <li> 2 - joe </li>
+  <li> 3 - nikk </li>
+</ul>
+----
+
+=== Loop Variable Properties
+
+|====
+| Property | Description
+| $loop.index | Holds the iteration index, start from 0
+| $loop.first | Whether or not the item is the first in the loop
+| $loop.last | Whether or not the item is the last in the loop
+| $loop.total | The total number of items
+| $loop.isEven | Whether or not the itteration count is a even number.
+| $loop.isOdd | Whether or not the itteration count is a odd number. The first item return true for `isOdd`.
+|====
+
+== Conditional Loops
+Quite often you have want to show a fallback message when the itteration data set is empty. Edge makes it easier to make use of `@else` tag within the `@each` tag.
+
+Template File
+[source, edge]
+----
+<ul>
+  @each(user in users)
+    <li> {{ ($loop.index + 1) }} - {{ user.username }} </li>
+  @else
+    <h2> No users found </h2>
+  @endeach
+</ul>
+----

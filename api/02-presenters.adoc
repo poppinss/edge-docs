@@ -1,0 +1,25 @@
+----
+permalink: presenters
+category: api
+----
+
+= Presenters
+View Presenter is a way to encapsulate complex logic inside a dedicated class, instead of writing it inside your template files. Also, it is very important to understand the philosophy behind a *Presenter* before you can really empower it.
+
+== Philosophy
+Template engines are heavily used inside Web applications and almost every maintainable web application try to structure their code following some of the pre-defined patterns. One of them is called *MVC* pattern.
+
+Projects using MVC would have heard or faced the situation of *Fat Controllers*. The reason controllers gets fat, because they have given too much responsibility of processing an HTTP request. For example:
+
+1. Reading request information.
+2. Validating user inputs.
+3. Fetching data from database.
+4. Transforming data for presentation.
+5. Passing transformed data to a view.
+
+Edge presenters is an attempt to solve the (point no 4) in the list. Instead of keeping all the logic of transforming the data within your controller, you can pass the raw data your views and transforming them inside presenters.
+
+== Presenter In Action
+Checkout the below video to see *Presenters In Action* and the problems it addresses.
+
+video:[]

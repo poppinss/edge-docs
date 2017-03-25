@@ -1,0 +1,167 @@
+----
+permalink: getting-started
+category: api
+----
+
+= Getting Started
+This guide will share API around *rendering* and *compiling* views. Make sure to follow the link:installation[installation process] before you can make use of Edge.
+
+== Configuring
+You can configure the Edge instance by calling the `configure` method. Following is the list of available options.
+
+[source, javascript]
+----
+const edge = require('edge.js')
+edge.configure({
+  cache: process.env.NODE_ENV === 'production'
+})
+----
+
+=== Options
+Right now `cache` is the only configuration option edge expects. In production you should turn the `cache` on.
+
+
+== Rendering Plain String
+For the most basic part, you can render a raw string
+
+[source, js]
+----
+const edge = require('edge.js')
+
+const statement = `
+@if(username)
+  <h1> Hello {{ username }} </h1>
+@else
+  <h1> Hello anonymous </h1>
+@endif
+`
+
+const data = {
+  username: 'virk'
+}
+
+edge.renderString(template, data)
+----
+
+.Outputs
+[source, html]
+----
+<h2> Hello virk </h2>
+----
+
+== Rendering Template Files
+For a proper application you would want to register a directory to be used for loading views. Make sure each template file ends with `.edge` extension.
+
+.views/welcome.edge
+[source, edge]
+----
+@if(username)
+  <h1> Hello {{ username }} </h1>
+@else
+  <h1> Hello anonymous </h1>
+@endif
+----
+
+[source, js]
+----
+const edge = require('edge.js')
+const path = require('path')
+
+edge.registerViews(path.join(__dirname, './views'))
+
+const data = {
+  username: 'virk'
+}
+
+edge.render('welcome', data)
+----
+
+.Outputs
+[source, html]
+----
+<h2> Hello virk </h2>
+----
+
+== View Presenters
+View Presenters let's you encapsulate the complex logic inside a Javascript class. Your view will have access to all the properties from a presenter. Learn more about Presenters link:view-presenters[here].
+
+[source, javascript]
+----
+const path = require('path')
+const edge = require('edge.js')
+
+edge.registerPresenters(path.join(__dirname, './presenters')) <1>
+
+const userData = {
+  username: 'virk',
+  age: 26
+}
+
+edge.presenter('User').render('user', userData)
+----
+<1> Just like views, you have to register a directory from where Edge will load the presenters.
+
+== Sharing Locals
+Just before rendering a view, you can share local variables with it. It becomes helpful when you want to share isolated data with a view before rendering the view.
+
+The classic use case is to share HTTP request information.
+
+[source, javascript]
+----
+const edge = require('edge')
+
+const template = edge.share({url: req.url}) <1>
+
+// later sometime
+template.render('users', { users }) <2>
+----
+
+<1> When you `edge.share` it returns you an isolated instance of template which you can render at a later time.
+<2> Later you can call `template.render` to render a view and locals will be accessible inside your views.
+
+== Compiling Views
+You can also *pre-compile* a view and run it later by requiring it as a Node.js module.
+
+[source, javascript]
+----
+const edge = require('edge.js')
+const path = require('path')
+
+edge.registerViews(path.join(__dirname, './views'))
+
+edge.compile('welcome') <1>
+edge.compile('welcome', false) <2>
+----
+<1> 1st statement will compile the template as an `iife` function.
+<2> 2nd statement will instead compile it as a common js module, so that you can save it inside a file.
+
+.Outputs (as module)
+[source, javascript]
+----
+module.exports = function () {
+  let out = new String()
+  if (this.context.resolve('username')) {
+    out += `  <h1> Hello ${this.context.escape(this.context.resolve('username'))} </h1>\n`
+  } else {
+    out += `  <h1> Hello anonymous </h1>\n`
+  }
+  return out
+}
+----
+
+== Rendering Pre Compiled Views
+Edge saves the pre-compiled views inside *in-memory* cache, so there is no need to pre-compile them and save them inside a file. But if for any reason you are doing this, you can run the pre-compiled template by calling the `renderCompiled` function.
+
+[source, javascript]
+----
+const edge = require('edge')
+
+// assuming you saved the template as compiled/welcome.js
+const welcome = require('./compiled/welcome.js')
+
+const data = {
+  username: 'virk'
+}
+
+edge.renderCompiled(welcome, data)
+----

@@ -1,0 +1,124 @@
+----
+permalink: layouts
+category: reference
+----
+
+= Layouts
+Edge has first class support for Layouts. Your templates can define a parent layout and override *selected sections*. Also a layout name can be dynamic.
+
+== Rules
+Below are some rules when using layouts.
+
+1. One template can only have a single parent layout.
+2. The `@layout` tag must be the first line within the template file.
+3. You cannot have nested layouts.
+4. Section name always needs to be static.
+
+== Basic Example
+
+.Layout File
+[source, edge]
+----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <header class="header">
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        @section('sidebar') <1>
+          <p> The default sidebar content </p>
+        @endsection
+      </aside>
+
+      <div class="content">
+        @!section('content') <2>
+      </div>
+    </div>
+  </body>
+</html>
+----
+
+<1> The first section `sidebar` has default content inside it. Overriding the section will remove the default content.
+<2> The `content` section is a self closed tag with no default content.
+
+.Template File
+[source, edge]
+----
+@layout('master')
+
+@section('content')
+  <p> Content area </p>
+@endsection
+----
+
+.Output
+[source, html]
+----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <header class="header">
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <p> The default sidebar content </p>
+      </aside>
+
+      <div class="content">
+        <p> Content area </p>
+      </div>
+    </div>
+  </body>
+</html>
+----
+
+== Extending Section Block
+You can also extend the content of the section block by making use of the `@super` tag.
+
+.Template File
+[source, edge]
+----
+@layout('master')
+
+@section('sidebar')
+  @super <1>
+  <p> Appended to the sidebar </p>
+@endsection
+
+
+@section('content')
+  <p> Content area </p>
+@endsection
+----
+
+.Output
+[source, html]
+----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head>
+  <body>
+    <header class="header">
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <p> The default sidebar content </p>
+        <p> Appended to the sidebar </p>
+      </aside>
+
+      <div class="content">
+        <p> Content area </p>
+      </div>
+    </div>
+  </body>
+</html>
+----

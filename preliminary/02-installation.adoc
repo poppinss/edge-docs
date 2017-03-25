@@ -1,0 +1,51 @@
+----
+permalink: preliminary
+category: api
+----
+
+= Installation
+
+Edge is installed via `npm`, and below is the list of requirements.
+
+1. Edge requires `node.js >= 6.0`
+2. And `npm >= 3.0`
+
+== Getting Started
+Let's start by installing the package from npm and render a simple view.
+
+NOTE: The package name is `edge.js` not *edge* or *edgejs* because those names were already taken by someone else on npm.
+
+.Installation
+[source, bash]
+----
+npm i --save edge.js
+----
+
+.views/greet.edge
+[source, edge]
+----
+<h2> Hello {{ username }} </h2>
+----
+
+.Rendering View
+[source, js]
+----
+const path = require('path')
+const edge = require('edge.js') <1>
+
+edge.registerViews(path.join(__dirname, './views')) <2>
+
+edge.render('greet', { username: 'virk' }) <3>
+----
+
+<1> First we require the npm module edge.
+<2> Next we register the views directory, from where to read the views.
+<3> Finally we call the `render` method with the view name and data we want to pass along.
+
+== Release Notes
+Details release notes are available on link:https://github.com/poppinss/edge[Github].
+
+== What's Next?
+You must read all the topics in link:conditionals[reference guide] to get better understand of available tags and options.
+
+If you want to dig deeper and understand the philosphy first, you must head over to link:how-edge-works[How edge works?].

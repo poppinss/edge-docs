@@ -1,0 +1,46 @@
+----
+permalink: comments
+category: reference
+----
+
+= Comments
+Comments are defined inside `{{-- --}}` tags. You can define both single and multi line comments.
+
+== SingleLine Comments
+[source, edge]
+----
+{{-- I will be removed from the final output --}}
+----
+
+== MultiLine Comments
+[source, edge]
+----
+{{--
+  I will be removed from the final output.
+--}}
+----
+
+A multiline comment should not contain any text after the opening tag. For example:
+
+.Invalid
+[source, edge]
+----
+{{-- Hello
+--}}
+----
+
+.Valid
+[source, edge]
+----
+{{--
+Hello
+--}}
+----
+
+== HTML Comments
+You can easily write HTML comments and they will passed to the browser.
+
+[source, edge]
+----
+<!-- I will be processed by the browser -->
+----

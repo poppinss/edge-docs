@@ -1,0 +1,49 @@
+----
+permalink: conditionals
+category: reference
+----
+
+= Conditionals
+Edge has first-class support for conditionals via `if` and `unless` tags.
+
+== if
+[source, edge]
+----
+@if(username)
+  <h2> Hello username </h2>
+@endif
+----
+
+== if/elseif
+[source, edge]
+----
+@if(hours < 12)
+  <h2> Good morning </h2>
+@elseif(hours < 18)
+  <h2> Good afternoon </h2>
+@endif
+----
+
+== if/else
+[source, edge]
+----
+@if(hours < 12)
+  <h2> Good morning </h2>
+@elseif(hours < 18)
+  <h2> Good afternoon </h2>
+@else
+  <h2> Good evening </h2>
+@endif
+----
+
+== unless
+The unless tag is opposite of *if tag*.
+
+[source, edge]
+----
+@unless(username)
+  <h2> You are not loggedin </h2>
+@else
+  <h2> Hello {{ username }} </h2>
+@endunless
+----
