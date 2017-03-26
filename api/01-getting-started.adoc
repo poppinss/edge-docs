@@ -1,7 +1,7 @@
-----
+---
 permalink: getting-started
 category: api
-----
+---
 
 = Getting Started
 This guide will share API around *rendering* and *compiling* views. Make sure to follow the link:installation[installation process] before you can make use of Edge.
