@@ -1,7 +1,7 @@
-----
+---
 permalink: comments
 category: reference
-----
+---
 
 = Comments
 Comments are defined inside `{{-- --}}` tags. You can define both single and multi line comments.

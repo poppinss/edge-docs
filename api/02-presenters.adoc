@@ -1,7 +1,7 @@
-----
+---
 permalink: presenters
 category: api
-----
+---
 
 = Presenters
 View Presenter is a way to encapsulate complex logic inside a dedicated class, instead of writing it inside your template files. Also, it is very important to understand the philosophy behind a *Presenter* before you can really empower it.

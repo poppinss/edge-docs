@@ -1,7 +1,7 @@
-----
+---
 permalink: globals
 category: reference
-----
+---
 
 = Globals
 Globals are key/value pairs available to all of your templates. Edge ships with a bunch of commonly used *globals*. Also you can add your own globals to the edge instance.

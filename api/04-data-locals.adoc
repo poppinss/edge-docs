@@ -1,7 +1,7 @@
-----
+---
 permalink: data-locals
 category: api
-----
+---
 
 = View Data And Locals
 While rendering you can pass `data` and `locals` object to a view. These objects gets merged and preference is given to the data object.

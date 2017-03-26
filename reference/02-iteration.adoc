@@ -1,7 +1,7 @@
-----
+---
 permalink: iteration
 category: reference
-----
+---
 
 = Iteration
 You can easily iterate over *Arrays* and *Object* using built-in `@each` tag.

@@ -1,7 +1,7 @@
-----
+---
 permalink: layouts
 category: reference
-----
+---
 
 = Layouts
 Edge has first class support for Layouts. Your templates can define a parent layout and override *selected sections*. Also a layout name can be dynamic.

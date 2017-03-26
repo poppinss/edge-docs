@@ -1,7 +1,7 @@
-----
+---
 permalink: tags
 category: reference
-----
+---
 
 = Tags
 Tags are backbone of Edge templates. They let you define behaviour of your templates. Edge itself does not add any logic to your templates but exposes any API to be used for creating powerful and expressive tags.

@@ -1,7 +1,7 @@
-----
+---
 permalink: conditionals
 category: reference
-----
+---
 
 = Conditionals
 Edge has first-class support for conditionals via `if` and `unless` tags.

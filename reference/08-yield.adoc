@@ -1,7 +1,7 @@
-----
+---
 permalink: yield
 category: reference
-----
+---
 
 = Yield
 The yield keyword is a shorthand syntax for outputting a variable and also define the fallback content, if it does not exists.

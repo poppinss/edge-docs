@@ -1,7 +1,7 @@
-----
+---
 permalink: syntax-guide
 category: api
-----
+---
 
 = Syntax Guide
 Syntax guide gives you a breif overview on how Edge templates works. Checkout syntax reference for list of available *tags* or *globals*. Also in order to keep learning curve small, edge makes use of vanilla Javascript syntax.

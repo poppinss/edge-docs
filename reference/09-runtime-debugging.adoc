@@ -1,7 +1,7 @@
-----
+---
 permalink: runtime-debugging
 category: reference
-----
+---
 
 = RunTime Debugging
 Unlike other templating engines, Edge does a fantastic job in letting you debug your views at runtime using Chrome devtools.
