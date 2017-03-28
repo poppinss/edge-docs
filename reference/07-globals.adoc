@@ -4,19 +4,21 @@ category: reference
 ---
 
 = Globals
-Globals are key/value pairs available to all of your templates. Edge ships with a bunch of commonly used *globals*. Also you can add your own globals to the edge instance.
+
+Globals are key/value pairs available to all of your templates. Edge ships with a bunch of commonly used *globals*. Also, you can add your own globals to the edge instance.
 
 == Adding Globals
 
 [source, javascript]
 ----
 const edge = require('edge.js')
+
 edge.global('count', function (array) {
   return array instanceof Array ? array.length : 0
 })
 ----
 
-Global `callback` function has access to the template scope via `this`, so that you can access properties on the template and the context instance. For example:
+Global `callback` function has access to the template scope via `this` so that you can access properties on the template and the context instance. For example:
 
 [source, javascript]
 ----

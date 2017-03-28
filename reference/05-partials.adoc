@@ -4,9 +4,10 @@ category: reference
 ---
 
 = Partials
-Partials are build blocks for your templates. They give you can opportunity to extract some markup to it's own file and include it at runtime.
 
-NOTE: Partials shares the scope of the parent template. For isolated markup you must use link:components[Components].
+Partials are building blocks for your templates. They give you can opportunity to extract some markup to its own file and include it at runtime.
+
+NOTE: Partials shares the scope of the parent template. For isolated scope, you must use link:components[Components].
 
 == Basic Example
 
@@ -57,9 +58,9 @@ const users = [
 ----
 
 == Each Include
-Also you can pass the `2nd` argument to the `@each` tag to include a partial for each iteration.
+Also, you can pass the `2nd` argument to the `@each` tag to include a partial for each iteration.
 
 [source, edge]
 ----
-@!each(user in users, include = 'partials.user-profile')
+@!each(user in users, include = 'user-profile')
 ----

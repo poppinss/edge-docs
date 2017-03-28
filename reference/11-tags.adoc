@@ -4,14 +4,15 @@ category: reference
 ---
 
 = Tags
-Tags are backbone of Edge templates. They let you define behaviour of your templates. Edge itself does not add any logic to your templates but exposes any API to be used for creating powerful and expressive tags.
+
+Tags are the backbone of Edge templates. They let you define the behaviour of your templates. Edge itself does not add any logic to your templates but exposes any API to be used for creating powerful and expressive tags.
 
 == Available Tags
 Below is the list of in-built Edge tags, however you are free to add your own.
 
 |====
 | Tag | Used As | Block Level | Description
-| Each | @each | Yes | Each tag let you iterate over *Arrays* and *Objects*, just like a foreach loop.
+| Each | @each | Yes | Each tag let you iterate over *Arrays* and *Objects*, just like a `foreach` loop.
   +
   link:iteration[Learn more]
 | Include | @include | No | Include tag is used to include a partial instead of writing inline HTML.
@@ -30,13 +31,16 @@ Below is the list of in-built Edge tags, however you are free to add your own.
   +
   link:layouts[Learn more].
 
-| Yield | @yield | Yes | Output a variable if it exists, otherwise show default content.
+| Yield | @yield | Yes | Output a variable if it exists, otherwise, show default content.
   +
   link:yield[Learn more].
 | Section | @section | Yes | Define/Override content for a given section.
   +
   link:layouts#_extending_section_block[Learn more].
+| Debugger | @debugger | No | Add debugging break point.
+  +
+  link:runtime-debugging[Learn more].
 |====
 
 == Writing Your Own Tags
-Checkout the following videos in order to learn creating your own tags.
+Check out the following videos in order to learn to create your own tags.

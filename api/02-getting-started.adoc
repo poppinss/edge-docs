@@ -4,7 +4,18 @@ category: api
 ---
 
 = Getting Started
-This guide will share API around *rendering* and *compiling* views. Make sure to follow the link:installation[installation process] before you can make use of Edge.
+
+This guide will share API around *rendering* and *compiling* views. But first, lets start with the installation process.
+
+= Installation
+
+Edge is installed via `npm`, and below is the list of requirements.
+
+1. Edge requires `node.js >= 6.0`
+2. And `npm >= 3.0`
+
+== Release Notes
+Details release notes are available on link:https://github.com/poppinss/edge[Github].
 
 == Configuring
 You can configure the Edge instance by calling the `configure` method. Following is the list of available options.
@@ -18,7 +29,7 @@ edge.configure({
 ----
 
 === Options
-Right now `cache` is the only configuration option edge expects. In production you should turn the `cache` on.
+Right now `cache` is the only configuration option edge expects. In production, you should turn the `cache` on.
 
 
 == Rendering Plain String
@@ -50,7 +61,7 @@ edge.renderString(template, data)
 ----
 
 == Rendering Template Files
-For a proper application you would want to register a directory to be used for loading views. Make sure each template file ends with `.edge` extension.
+For a proper application, you would want to register a directory to be used for loading views. Make sure each template file ends with `.edge` extension.
 
 .views/welcome.edge
 [source, edge]
@@ -83,7 +94,7 @@ edge.render('welcome', data)
 ----
 
 == View Presenters
-View Presenters let's you encapsulate the complex logic inside a Javascript class. Your view will have access to all the properties from a presenter. Learn more about Presenters link:view-presenters[here].
+View Presenters lets you encapsulate the complex logic inside a Javascript class. Your view will have access to all the properties from a presenter. Learn more about Presenters link:view-presenters[here].
 
 [source, javascript]
 ----
@@ -116,7 +127,7 @@ const template = edge.share({url: req.url}) <1>
 template.render('users', { users }) <2>
 ----
 
-<1> When you `edge.share` it returns you an isolated instance of template which you can render at a later time.
+<1> When you `edge.share` it returns you an isolated instance of a template which you can render at a later time.
 <2> Later you can call `template.render` to render a view and locals will be accessible inside your views.
 
 == Compiling Views
@@ -147,21 +158,4 @@ module.exports = function () {
   }
   return out
 }
-----
-
-== Rendering Pre Compiled Views
-Edge saves the pre-compiled views inside *in-memory* cache, so there is no need to pre-compile them and save them inside a file. But if for any reason you are doing this, you can run the pre-compiled template by calling the `renderCompiled` function.
-
-[source, javascript]
-----
-const edge = require('edge')
-
-// assuming you saved the template as compiled/welcome.js
-const welcome = require('./compiled/welcome.js')
-
-const data = {
-  username: 'virk'
-}
-
-edge.renderCompiled(welcome, data)
 ----

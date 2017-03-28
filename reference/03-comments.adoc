@@ -4,7 +4,8 @@ category: reference
 ---
 
 = Comments
-Comments are defined inside `{{-- --}}` tags. You can define both single and multi line comments.
+
+Comments are defined inside `{{-- --}}` tags. You can define both single and multi-line comments.
 
 == SingleLine Comments
 [source, edge]
@@ -38,7 +39,7 @@ Hello
 ----
 
 == HTML Comments
-You can easily write HTML comments and they will passed to the browser.
+You can also write HTML comments and they will be passed to the browser.
 
 [source, edge]
 ----

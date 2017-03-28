@@ -4,6 +4,7 @@ category: reference
 ---
 
 = Iteration
+
 You can easily iterate over *Arrays* and *Object* using built-in `@each` tag.
 
 == Arrays
@@ -107,12 +108,12 @@ When iterating over data sets, you have access to a global `$loop` variable hold
 | $loop.first | Whether or not the item is the first in the loop
 | $loop.last | Whether or not the item is the last in the loop
 | $loop.total | The total number of items
-| $loop.isEven | Whether or not the itteration count is a even number.
-| $loop.isOdd | Whether or not the itteration count is a odd number. The first item return true for `isOdd`.
+| $loop.isEven | Whether or not an iteration count is an even number.
+| $loop.isOdd | Whether or not an iteration count is an odd number. The first item returns true for `isOdd`.
 |====
 
 == Conditional Loops
-Quite often you have want to show a fallback message when the itteration data set is empty. Edge makes it easier to make use of `@else` tag within the `@each` tag.
+Quite often you want to show a fallback message when the iteration data set is empty. Edge makes it easier to make use of `@else` tag within the `@each` tag.
 
 Template File
 [source, edge]

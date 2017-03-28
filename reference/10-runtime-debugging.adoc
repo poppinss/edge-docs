@@ -4,6 +4,7 @@ category: reference
 ---
 
 = RunTime Debugging
+
 Unlike other templating engines, Edge does a fantastic job in letting you debug your views at runtime using Chrome devtools.
 
 Since your views are compiled to a javascript function, Edge makes sure the compiled template is readable and thus easier to debug.
@@ -24,6 +25,6 @@ In order to debug your template, you can make use of `@debugger` keyword. Make s
 and some content
 ----
 
-Also checkout the following video to see debugging in action
+Also check out the following video to see debugging in action
 
 video:[]

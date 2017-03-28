@@ -4,9 +4,10 @@ category: reference
 ---
 
 = Components
-If you have been developing frontend apps in Javascript, you would have heard about link:https://www.webcomponents.org/introduction[Web components]. Now Edge components are not true web components, but they give you a chance to write *isolated markup* with *self contained logic*.
+
+If you have been developing frontend apps in Javascript, you would have heard about link:https://www.webcomponents.org/introduction[Web components]. Now Edge components are not true web components, but they give you a chance to write *isolated markup* with *self-contained logic*.
 
 == Basic Example
-Checkout the following video to see components in action.
+Check out the following video to see components in action.
 
 video:[]

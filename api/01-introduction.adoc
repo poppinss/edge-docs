@@ -1,16 +1,29 @@
 ---
-permalink: preliminary
-category: api
+permalink: introduction
+category: preliminary
 ---
 
 = Introduction
 
 Edge is a logical templating engine for Node.js. Which means you can write most of the Javascript expressions inside `.edge` file. This guide gives you a *bird eye view* of Edge features and how to use it.
 
-== Basic Usage
-The most simplest way to use Edge is to register a views directory and render views via the `render` method.
+Before you get started, please note the following points:
 
-NOTE: Make sure to check the link:installation[installation guide] incase you are not sure on how to install Edge.
+1. All template files ends with `.edge` extension.
+2. You cannot customize Edge syntax.
+3. Edge file loader allows you to define template paths with dot notation.
++
+For example:
++
+[source, js]
+----
+edge.render('users.list') // users/list.edge
+----
+
+== Basic Usage
+The simplest way to use Edge is to register the views directory and render views via the `render` method.
+
+NOTE: Make sure to check the link:installation[installation guide] in case you are not sure on how to install Edge.
 
 .Directory Structure
 [source, bash]
@@ -49,10 +62,10 @@ edge.render('welcome', {
 <3> Finally, call the `render` method with the view name and data we want to pass along.
 
 == Features
-Edge has bunch of cool features I always desired from a template engine.
+Edge has a bunch of cool features I always desired from a template engine.
 
 === Syntax with fresh air
-Edge follows the natural Javascript syntax, which makes it easier to type and remember. For string interpolation it makes use of *mustache syntax* `{{ username }}`. Let's take a look at some examples:
+Edge follows the natural Javascript syntax, which makes it easier to type and remember. For string interpolation, it makes use of *mustache syntax* `{{ username }}`. Let's take a look at some examples:
 
 .Layouts
 [source, edge]
@@ -74,13 +87,13 @@ Edge follows the natural Javascript syntax, which makes it easier to type and re
 If you leave out `@` symbol, everything else feels like writing Javascript functions. Read link:syntax-guide[Syntax guide] to know more about Edge syntax.
 
 === Support for components
-If you have been developing frontend apps in Javascript, you would have heard about link:https://www.webcomponents.org/introduction[Web components]. Now Edge components are not true web components, but they give you a chance to write *isolated markup* with *self contained logic*. The most common example is to have a component for alerts.
+If you have been developing frontend apps in Javascript, you would have heard about link:https://www.webcomponents.org/introduction[Web components]. Now Edge components are not true web components, but they give you a chance to write *isolated markup* with *self-contained logic*. The most common example is to have a component for alerts.
 
 .alert.edge
 [source, edge]
 ----
 <div class="alert alert-{{type}}" role="alert">
-  @yield($slot.main)
+  @!yield($slot.main)
 </div>
 ----
 
@@ -98,9 +111,9 @@ Read link:components[Components Guide] to learn more about components.
 Have you ever done `JSON.stringify(users)` inside your templates?::
   I believe Yes.
 
-Majority of template engines doesn't offer tools to debug your templates in runtime and instead offers weird filters like `inspect` or `toJSON` to see how an object looks like.
+The majority of template engines doesn't offer tools to debug your templates in runtime and instead offers weird filters like `inspect` or `toJSON` to see how an object looks like.
 
-Edge empowers chrome dev tools and let you define debugging break points inside your templates. Check the below video to learn more about runtime debugging.
+Edge empowers Chrome dev tools and lets you define debugging breakpoints inside your templates. Check the below video to learn more about runtime debugging.
 
 video:[]
 
@@ -115,5 +128,5 @@ Apart from all the exciting features, Edge has support for common functionality 
 3. Globals
 4. Escaped Output
 5. Logical Tags
-6. Itteration, etc.
+6. Iteration, etc.
 

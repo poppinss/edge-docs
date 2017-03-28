@@ -4,6 +4,7 @@ category: reference
 ---
 
 = Conditionals
+
 Edge has first-class support for conditionals via `if` and `unless` tags.
 
 == if
@@ -37,7 +38,7 @@ Edge has first-class support for conditionals via `if` and `unless` tags.
 ----
 
 == unless
-The unless tag is opposite of *if tag*.
+The `unless` tag is opposite of the *if tag*.
 
 [source, edge]
 ----

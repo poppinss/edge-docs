@@ -1,0 +1,16 @@
+---
+permalink: raw-output
+category: reference
+---
+
+= Raw Output
+
+At times you want to skip chunk of markup from being processed by Edge. It is very common when you are using some kind of frontend framework, which has syntax similar to Edge.
+
+[source, edge]
+----
+@raw
+  <h2> I will not be processed </h2>
+  <p> Neither will I, though I have {{ mustache }} syntax </p>
+@endraw
+----

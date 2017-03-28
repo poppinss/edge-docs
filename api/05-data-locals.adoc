@@ -3,8 +3,9 @@ permalink: data-locals
 category: api
 ---
 
-= View Data And Locals
-While rendering you can pass `data` and `locals` object to a view. These objects gets merged and preference is given to the data object.
+= Data And Locals
+
+While rendering you can pass `data` and `locals` object to a view. These objects get merged and preference is given to the data object.
 
 == Basic Example
 [source, javascript]
@@ -21,9 +22,9 @@ edge.renderString(template, { username: 'virk' })
 The object passed to the `renderString` method is the `data` object.
 
 == Locals
-You can share locals with a template by calling the `share` method. Ideally there is no difference in *locals* and *data* object. Locals gives you an opportunity to transparently share a data with your views.
+You can share locals with a template by calling the `share` method. Ideally, there is no difference in *locals* and *data* object. Locals give you an opportunity to transparently share a data with your views.
 
-For example: Passing HTTP request object to your views within a middleware.
+For example Passing HTTP request object to your views within a middleware.
 
 NOTE: You cannot call `share` multiple times, doing so will override the previous object.
 
