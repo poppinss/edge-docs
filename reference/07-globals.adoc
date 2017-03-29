@@ -25,11 +25,11 @@ Global `callback` function has access to the template scope via `this` so that y
 const edge = require('edge.js')
 
 edge.global('csrfField', function () {
-  return this.context.safe(`<input type="hidden" value="${csrfToken}" name="_token"/>`)
+  return this.safe(`<input type="hidden" value="${csrfToken}" name="_token"/>`)
 })
 ----
 
-Here `this.context.safe` is a function to mark the HTML string as safe, which means it will not be escaped.
+Here `this.safe` is a function to mark the HTML string as safe, which means it will not be escaped.
 
 == Existing Globals
 Below is the list of globals shipped with Edge.

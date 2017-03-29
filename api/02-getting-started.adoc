@@ -96,7 +96,7 @@ edge.render('welcome', data)
 == View Presenters
 View Presenters lets you encapsulate the complex logic inside a Javascript class. Your view will have access to all the properties from a presenter.
 
-Learn more about Presenters link:view-presenters[here].
+Learn more about Presenters link:presenters[here].
 
 [source, javascript]
 ----

@@ -120,9 +120,23 @@ Template File
 ----
 <ul>
   @each(user in users)
-    <li> {{ ($loop.index + 1) }} - {{ user.username }} </li>
+    <li> {{ user.username }} </li>
   @else
     <h2> No users found </h2>
   @endeach
 </ul>
+----
+
+== Include Partial
+Each tag also makes it easier to include a partial for each iteration round.
+
+.partials/user.edge
+[source, edge]
+----
+<li> {{ user.username }} </li>
+----
+
+[source, edge]
+----
+@!each(user in users, include = 'partials.user')
 ----

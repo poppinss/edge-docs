@@ -14,3 +14,10 @@ At times you want to skip chunk of markup from being processed by Edge. It is ve
   <p> Neither will I, though I have {{ mustache }} syntax </p>
 @endraw
 ----
+
+You can also instruct Edge to skip `{{ }}` from being interpolated.
+
+[source, edge]
+----
+@{{ Not processed }}
+----
