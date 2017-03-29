@@ -1,6 +1,6 @@
 ---
 permalink: introduction
-category: preliminary
+category: api
 ---
 
 = Introduction

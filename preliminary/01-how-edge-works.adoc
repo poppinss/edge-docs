@@ -7,10 +7,14 @@ category: preliminary
 
 This is the deep dive guide on Edge. It is fine if you want to skip this guide and just use Edge in your application. Otherwise, follow along to explore the interesting territory.
 
-Rendering a template is divided into 2 different steps called *Compile time* and *Runtime*. All templates are compiled only once and then fetched from in-memory cache. For development, you can turn off the caching so that they are compiled everytime you make a new change.
+Rendering a template is divided into 2 different steps called *Compile time* and *Runtime*. All templates are compiled only once and then fetched from in-memory cache.
+
+For development, you can turn off the caching so that they are compiled everytime you make a new change.
 
 == Compiler
-Let's understand how the underlying compiler works in Edge. The process is again divided into 2 different steps of *generating the AST* and *converting the values into expressions*. Let's take a small example on how the `@if` tag will be compiled.
+Let's understand how the underlying compiler works in Edge. The process is again divided into 2 different steps of *generating the AST* and *converting the values into expressions*.
+
+Let's take a small example on how the `@if` tag will be compiled.
 
 .Template File
 [source, edge]

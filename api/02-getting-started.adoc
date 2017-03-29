@@ -7,7 +7,7 @@ category: api
 
 This guide will share API around *rendering* and *compiling* views. But first, lets start with the installation process.
 
-= Installation
+== Installation
 
 Edge is installed via `npm`, and below is the list of requirements.
 
@@ -94,7 +94,9 @@ edge.render('welcome', data)
 ----
 
 == View Presenters
-View Presenters lets you encapsulate the complex logic inside a Javascript class. Your view will have access to all the properties from a presenter. Learn more about Presenters link:view-presenters[here].
+View Presenters lets you encapsulate the complex logic inside a Javascript class. Your view will have access to all the properties from a presenter.
+
+Learn more about Presenters link:view-presenters[here].
 
 [source, javascript]
 ----

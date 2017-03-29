@@ -12,9 +12,7 @@ While rendering you can pass `data` and `locals` object to a view. These objects
 ----
 const edge = require('edge.js')
 
-const template = `
-Hello {{ username }}
-`
+const template = 'Hello {{ username }}'
 
 edge.renderString(template, { username: 'virk' })
 ----
@@ -35,7 +33,7 @@ const someMiddleware = function (req, res) {
 }
 
 const requestHandler = function () {
-  req.view.render('welcome') <1>
+  req.view.render('welcome') <2>
 }
 ----
 
