@@ -7,6 +7,8 @@ category: api
 
 This guide will share API around *rendering* and *compiling* views. But first, lets start with the installation process.
 
+video::0gTR9fRB__g[youtube]
+
 == Installation
 
 Edge is installed via `npm`, and below is the list of requirements.

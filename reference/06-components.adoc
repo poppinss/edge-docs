@@ -10,4 +10,4 @@ If you have been developing frontend apps in Javascript, you would have heard ab
 == Basic Example
 Check out the following video to see components in action.
 
-video:[]
+video::cuMXpblC6nY[youtube]

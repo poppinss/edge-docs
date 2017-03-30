@@ -5,6 +5,8 @@ category: api
 
 = Syntax Guide
 
+video::6wHE0cid0BY[youtube]
+
 Syntax guide gives you a brief overview of how Edge templates work. Checkout syntax reference for the list of available *tags* or *globals*. Also in order to keep learning curve small, edge makes use of vanilla Javascript syntax.
 
 == Interpolation

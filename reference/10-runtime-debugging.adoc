@@ -27,4 +27,4 @@ and some content
 
 Also check out the following video to see debugging in action
 
-video:[]
+video::UoSNI-guzPI[youtube]

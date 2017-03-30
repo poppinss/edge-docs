@@ -115,7 +115,7 @@ The majority of template engines doesn't offer tools to debug your templates in 
 
 Edge empowers Chrome dev tools and lets you define debugging breakpoints inside your templates. Check the below video to learn more about runtime debugging.
 
-video:[]
+video::UoSNI-guzPI[youtube]
 
 === Helpful error messages
 Since template files are compiled into javascript and then evaluated, the error stack never points to the original source file. Edge does it's best to track the error within your source file and updates the error stack to point towards the correct line number.

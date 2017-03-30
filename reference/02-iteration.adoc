@@ -7,6 +7,8 @@ category: reference
 
 You can easily iterate over *Arrays* and *Object* using built-in `@each` tag.
 
+video::RbwHe8C0HEw[youtube]
+
 == Arrays
 
 .Data object
