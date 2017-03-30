@@ -15,7 +15,7 @@ Edge is installed via `npm`, and below is the list of requirements.
 2. And `npm >= 3.0`
 
 == Release Notes
-Details release notes are available on link:https://github.com/poppinss/edge[Github].
+Details release notes are available on link:https://github.com/poppinss/edge[Github, window="_blank"].
 
 == Configuring
 You can configure the Edge instance by calling the `configure` method. Following is the list of available options.

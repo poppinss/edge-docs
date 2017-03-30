@@ -23,7 +23,7 @@ edge.render('users.list') // users/list.edge
 == Basic Usage
 The simplest way to use Edge is to register the views directory and render views via the `render` method.
 
-NOTE: Make sure to check the link:installation[installation guide] in case you are not sure on how to install Edge.
+NOTE: Make sure to check the link:getting-started#_installation[installation guide] in case you are not sure on how to install Edge.
 
 .Directory Structure
 [source, bash]
