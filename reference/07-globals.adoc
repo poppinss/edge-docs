@@ -34,3 +34,103 @@ Here `this.safe` is a function to mark the HTML string as safe, which means it w
 == Existing Globals
 Below is the list of globals shipped with Edge.
 
+=== range([start=0], end)
+Returns an array of numbers within a given range
+
+[source, edge]
+----
+@each(number in range(10))
+  {{ number }}
+@endeach
+----
+
+Or
+
+[source, edge]
+----
+@each(number in range(2, 10))
+  {{ number }}
+@endeach
+----
+
+=== batch(array)
+Convert an array to a batch of nested arrays.
+
+=== toJSON
+Convert an object to a JSON string via `JSON.stringify`
+
+=== first
+Returns the first item from an array.
+
+=== last
+Returns the last item from an array.
+
+=== groupBy
+Group an array via given field. For example group all articles for an author.
+
+[source, edge]
+----
+@each((articles, author) in groupBy(articles, 'author'))
+  <h2> Below articles are written by {{ author }} </h2>
+
+  {{-- Loop over articles --}}
+  @each(article in articles)
+    <h3> {{ article.title }} </h3>
+    <p> {{ article.body }} <p>
+  @endeach
+
+@endeach
+----
+
+=== size
+Return size of a string or an array.
+
+=== el
+Returns an HTML string by replacing dynamic placeholders with actual content. It is helpful inside `if shorthand`
+
+[source, edge]
+----
+{{-- Show profile url only when profile exists --}}
+{{ user.profile ? el('<a href="$profileUrl">$name</a>', user.profile) : '' }}
+----
+
+=== camelCase
+Convert string to camelcase
+
+=== upperCase
+Convert string to uppercase
+
+=== upperFirst
+Convert first character of a string to uppercase
+
+=== lowerCase
+Convert string to lowercase
+
+=== lowerFirst
+Convert first character of a string to lowercase
+
+=== capitalize
+Convert first character of all words inside a string to uppercase
+
+=== truncate(string, limit, omission = ...)
+Truncate a string to a given limit
+
+[source, edge]
+----
+{{ truncate(user.bio, 40, '...') }}
+----
+
+=== toAnchor(url, title = url)
+Convert a url to an anchor tag
+
+[source, edge]
+----
+{{ toAnchor('http://google.com') }}
+
+{{--
+Returns: <a href="http://google.com">http://google.com</a>
+--}}
+----
+
+=== urlEncode
+Encode a string to be url safe.
