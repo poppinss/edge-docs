@@ -36,6 +36,8 @@ Below is the list of in-built Edge tags, however you are free to add your own.
   link:yield[Learn more].
 | Section | @section | Yes | Define/Override content for a given section.
   +
+| Set | @set | No | Let define/override template variable
+  +
   link:layouts#_extending_section_block[Learn more].
 | Debugger | @debugger | No | Add debugging break point.
   +
